@@ -33,13 +33,23 @@
       max-width: 400px;
     }
 
-    button {
-      padding: 12px;
-      background: #ff4081;
-      color: white;
-      border: none;
-      cursor: pointer;
-      margin-top: 10px;
+    <button onclick="addToCart()">Add to Cart</button>
+
+   <script>
+   function addToCart() {
+   let product = {
+    name: "Summer Dress",
+    price: 39.99
+  };
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(product);
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  alert("Item added to cart!");
+}
+</script>
     }
   </style>
 </head>
