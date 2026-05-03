@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product - BuyHerClothes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      background: #f9f9f9;
+    }
+
+    header {
+      background: black;
+      color: white;
+      padding: 15px 30px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 40px;
+      gap: 40px;
+    }
+
+    .image img {
+      width: 300px;
+    }
+
+    .details {
+      max-width: 400px;
+    }
+
+    button {
+      padding: 12px;
+      background: #ff4081;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>BuyHerClothes</h2>
+</header>
+
+<div class="container">
+  <div class="image">
+    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+  </div>
+
+  <div class="details">
+    <h2>Summer Dress</h2>
+    <p>Elegant and comfortable summer dress perfect for all occasions.</p>
+    <h3>£39.99</h3>
+
+    <button onclick="addToCart()">Add to Cart</button>
+  </div>
+</div>
+
+<script>
+function addToCart() {
+  alert("Added to cart!");
+}
+</script>
+
+</body>
+</html>
