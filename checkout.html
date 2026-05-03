@@ -1,26 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Checkout</title>
+  <meta charset="UTF-8">
+  <title>Checkout - BuyHerClothes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f5f5f5;
+      margin: 0;
+    }
+
+    header {
+      background: black;
+      color: white;
+      padding: 15px 30px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .total {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    .pay-btn {
+      width: 100%;
+      padding: 15px;
+      background: #635bff;
+      color: white;
+      border: none;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .methods {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>Checkout</h1>
+<header>
+  <h2>Secure Checkout</h2>
+</header>
 
-<h3 id="total"></h3>
+<div class="container">
 
-<button id="payBtn">Pay Now</button>
+  <h3>Your Order</h3>
+  <div id="cart"></div>
+
+  <div class="total" id="total"></div>
+
+  <div class="methods">
+    Payment methods: Visa • Mastercard • Mobile Money (coming next)
+  </div>
+
+  <button class="pay-btn" onclick="pay()">Pay Now</button>
+
+</div>
 
 <script>
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-let total = cart.reduce((sum, item) => sum + item.price, 0);
+let container = document.getElementById("cart");
+let total = 0;
+
+cart.forEach(item => {
+  total += item.price;
+
+  container.innerHTML += `
+    <div class="item">
+      <span>${item.name}</span>
+      <span>£${item.price}</span>
+    </div>
+  `;
+});
+
 document.getElementById("total").innerText = "Total: £" + total.toFixed(2);
 
-// Stripe redirect (placeholder for now)
-document.getElementById("payBtn").onclick = function () {
-  window.location.href = "success.html";
-};
+function pay() {
+  // placeholder for Stripe/MoMo later
+  alert("Payment system will connect next step");
+}
 </script>
 
 </body>
